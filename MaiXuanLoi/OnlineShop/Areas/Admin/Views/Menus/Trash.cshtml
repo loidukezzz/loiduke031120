@@ -1,0 +1,109 @@
+﻿@model IEnumerable<MyLibrary.Model.Menu>
+
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thùng rác munu</h2>
+
+<p>
+    @Html.ActionLink("Index", "Menus")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th scope="col">
+            #
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Link)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Orders)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TableId)
+        </th>
+        @*<th scope="col">
+            @Html.DisplayNameFor(model => model.ParentId)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Created_at)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Created_by)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Updated_at)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Status)
+        </th>*@
+        <th scope="col"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Link)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Orders)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TableId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentId)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Created_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>*@
+        <td>
+            <div class="action_btns d-flex">
+                <a href="@Url.Action("Retrash", "Menus", new { id = item.Id })" class="action_btn mr_10"> <i class="fas fa-trash-restore"></i>__</a>
+                <a href="@Url.Action("Delete", "Menus", new { id = item.Id })" class="action_btn ml-10"><i class="far fa-trash-alt"></i>_</a>
+            </div>
+        </td>
+    </tr>
+    }
+
+</table>
+

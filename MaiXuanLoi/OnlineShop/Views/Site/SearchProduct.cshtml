@@ -1,0 +1,88 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<MyLibrary.Model.Product>
+@{
+    ViewBag.Title = "SearchProduct";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+        <hr />
+        <header class="mb-3">
+            <div class="form-inline">
+                <strong >Search @ViewBag.Search / </strong>
+                <strong class="mr-md-auto">@Model.Count Sản phẩm hợp lệ </strong>
+                <select class="mr-2 form-control">
+                    <option>Sản phẩm mới nhất</option>
+                    <option>Mua nhiệu</option>
+                    <option>Phổ biến nhất</option>
+                    <option>Rẻ nhất</option>
+                </select>
+                <div class="btn-group">
+                    <a href="page-listing-grid.html" class="btn btn-light active" data-toggle="tooltip" title="List view">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <a href="page-listing-large.html" class="btn btn-light" data-toggle="tooltip" title="Grid view">
+                        <i class="fa fa-th"></i>
+                    </a>
+                </div>
+            </div>
+        </header><!-- sect-heading -->
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <figure class="card card-product-grid">
+                        <div class="img-wrap">
+                            @{
+                                var sale = Convert.ToInt32(100 - ((@item.PriceSale * 100) / @item.Price));
+                                var news = Model.OrderByDescending(m => m.Created_at).Take(20);
+                            }
+                            @if (sale > 13)
+                            {
+                                <span class="badge badge-danger"> Sale </span>
+                            }
+
+                            <span style="margin-left: 40px;" class="badge badge-success"> New </span>
+
+
+                            <img src="~/@item.Img">
+                        </div> <!-- img-wrap.// -->
+                        <figcaption class="info-wrap">
+                            <a href="~/chi-tiet-san-pham/@item.Slug" class="title mb-2">@item.Name</a>
+                            <div class="price-wrap">
+                                <span class="price">@item.PriceSale.ToString("#,##0") - @item.Price.ToString("#,##0")Vnđ</span>
+                                <small class="text-muted">/1 sản phẩm</small>
+                            </div> <!-- price-wrap.// -->
+
+                            <hr>
+
+                            <p class="mb-3">
+                                <span class="tag"> <i class="fa fa-check"></i> Đã xác minh</span>
+                                <span class="tag"> 23 đánh giá </span>
+                                <span class="tag"> 96 Đã mua </span>
+                            </p>
+
+                            <a href="/ShoppingCart/AddToCart/@item.Id" class="btn btn-outline-primary"><i class="fas fa-shopping-cart"></i>  Thêm vào giỏ hàng </a>
+                            <a href="~/chi-tiet-san-pham/@item.Slug" class="btn btn-outline-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </a>
+
+                        </figcaption>
+                    </figure>
+                </div> <!-- col.// -->
+            }
+        </div> <!-- row end.// -->
+        <nav class="mb-4" aria-label="Page navigation sample">
+            <ul class="pagination">
+                <li class="page-item active"> @Html.PagedListPager(Model, page => Url.Action("Product", "Site", new { page, size = ViewBag.currentSize }))</li>
+            </ul>
+        </nav>
+
+
+    </div>
+</section>
+

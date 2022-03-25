@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MyLibrary.Model.Posts>
+<div class="col-md d-none d-lg-block flex-grow-1">
+    <aside class="special-home-right">
+        <h6 class="bg-blue text-center text-white mb-0 p-2">Tin tức nổi bậc</h6>
+        @foreach (var item in Model)
+        {
+            <div class="card-banner border-bottom">
+                <div class="py-3" style="width:80%">
+                    <h6 class="card-title">@item.Title</h6>
+                    <a href="~/bai-viet/@item.Slug" class="btn btn-secondary btn-sm"> Xem ngay </a>
+                </div>
+                <img src="~/@item.Img" height="80" class="img-bg">
+            </div>
+        }
+    </aside>
+</div> <!-- col.// -->

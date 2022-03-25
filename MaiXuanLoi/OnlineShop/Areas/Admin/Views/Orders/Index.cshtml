@@ -1,0 +1,118 @@
+﻿@model IEnumerable<MyLibrary.Model.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách đơn hàng</h2>
+
+<p>
+    <button type="button" class="btn btn-outline-primary rounded-pill mb-3">
+        <a href="@Url.Action("Create", "Orders")"><i class="fas fa-plus mr-2"></i>Thêm Mới</a>
+    </button>
+    <button type="button" class="btn btn-outline-primary rounded-pill mb-3">
+        <a href="@Url.Action("Trash", "Orders")"><i class="fas fa-trash mr-2"></i>Thùng Rác</a>
+    </button>
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.ExportDate)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.DeliveryAddress)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.DeliveryName)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.DeliveryPhone)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.DeliveryEmail)
+        </th>
+        @*<th scope="col">
+                @Html.DisplayNameFor(model => model.Updated_at)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Updated_by)
+            </th>*@
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th scope="col"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExportDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryEmail)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Updated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_by)
+        </td>*@
+        <td>
+            @if (item.Status == 1)
+            {
+                <a href="@Html.DisplayFor(modelItem => item.Status)" class="badge_active">Active</a>
+
+            }
+            else
+            {
+                <a href="@Html.DisplayFor(modelItem => item.Status)" class="badge_active3">Closed</a>
+            }
+        </td>
+        <td>
+            <div class="action_btns d-flex">
+                @if (item.Status == 1)
+                {
+                    <a class="action_btn mr_10" href="@Url.Action("Status", "Orders",new { id = item.Id })"><i class="fas fa-toggle-on"></i>_</a>
+                }
+                else
+                {
+                    <a class="action_btn mr_10" href="@Url.Action("Status", "Orders",new { id = item.Id })"><i class="fas fa-toggle-off"></i>_</a>
+                }
+                <a href="@Url.Action("Edit", "Orders", new { id = item.Id })" class="action_btn mr_10"> <i class="far fa-edit"> </i>_</a>
+                <a href="@Url.Action("Deltrash", "Orders", new { id = item.Id })" class="action_btn"> <i class="fas fa-trash"> </i>_</a>
+                <a href="@Url.Action("Details", "Orders", new { id = item.Id })" class="action_btn ml-10"> <i class="far fa-eye"> </i>_</a>
+            </div>
+        </td>
+    </tr>
+    }
+
+</table>

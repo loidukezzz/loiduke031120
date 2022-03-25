@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<div class="container">
+    <!-- ========================= SECTION MAIN  ========================= -->
+    <section class="section-main padding-y">
+        <main class="card">
+            <div class="card-body">
+                <div class="row">
+                    <aside class="col-lg col-md-3 flex-lg-grow-0">
+                        @Html.Action("Category", "Module")
+                    </aside> <!-- col.// -->
+                    <div class="col-md-9 col-xl-7 col-lg-7">
+                        <!-- ================== COMPONENT SLIDER  BOOTSTRAP  ==================  -->
+                        @Html.Action("Slideshow", "Module")
+                        <!-- ==================  COMPONENT SLIDER BOOTSTRAP end.// ==================  .// -->
+                    </div> <!-- col.// --> 
+                        @Html.Action("PostsTopic", "Site")                    
+                </div> <!-- row.// -->
+            </div> <!-- card-body.// -->
+        </main> <!-- card.// -->
+    </section>
+    <!-- ========================= SECTION MAIN END// ========================= -->
+    <!-- =============== SECTION DEAL =============== -->
+    @Html.Action("Deals", "Module")
+    <!-- =============== SECTION DEAL // END =============== -->
+    <!-- =============== SECTION APAREALS =============== -->
+    @*@Html.Action("Apareals", "Module")*@
+    @model IEnumerable<MyLibrary.Model.Category>
+    @foreach (var cat in Model)
+    {
+        <section class="padding-bottom">
+            <header class="section-heading heading-line">
+                <h4 class="title-section text-uppercase">@cat.Title</h4>
+            </header>
+            <div class="card card-home-category">
+                <div class="row no-gutters">
+                    <div class="col-md-3">
+
+                        <div class="home-category-banner bg-light-orange">
+                            <h5 class="title">@cat.ShortDes</h5>
+                            <p>@cat.Fulldecription </p>
+                            <a href="~/loai-san-pham/@cat.Slug" class="btn btn-outline-primary rounded-pill"><img src="~/@cat.Image" class="img-bg">Xem ngay</a>
+                            
+                        </div>
+                    </div> <!-- col.// -->
+                    <div class="col-md-9">
+                        <ul class="row no-gutters bordered-cols">
+                            @Html.Action("ProductHome", "Site", new { @catid = cat.Id })
+                        </ul>
+                    </div> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- card.// -->
+        </section>
+    }
+
+    <!-- =============== SECTION 1 END =============== -->
+    <!-- =============== SECTION ITEMS =============== -->
+    @Html.Action("ItemHome", "Module")
+    <!-- =============== SECTION ITEMS .//END =============== -->
+    <!-- =============== SECTION SERVICES =============== -->
+    @Html.Action("Services", "Module")
+    <!-- =============== SECTION SERVICES .//END =============== -->
+    <!-- =============== SECTION REGION =============== -->
+    @Html.Action("Regions", "Module")
+    <!-- =============== SECTION REGION .//END =============== -->
+    <article class="my-4">
+        <img src="~/Content/images/banners/ad-sm.png" class="w-100">
+    </article>
+</div>
+<!-- container end.// -->
+<!-- ========================= SECTION SUBSCRIBE  ========================= -->
+    @Html.Action("Subcribe", "Module")
+<!-- ========================= SECTION SUBSCRIBE END// ========================= -->

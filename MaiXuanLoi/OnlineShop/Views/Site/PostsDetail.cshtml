@@ -1,0 +1,37 @@
+﻿@model MyLibrary.Model.Posts
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img style="width:800px;" src="~/@Model.Img" />
+                    <br />
+                    <b class="btn btn-default">@Model.Title</b>
+                    <p>@Model.Detail</p>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br><br><br>
+            <h4>Tin tức khác</h4>
+            <div class="row mt-5">
+                @foreach (var item in ViewBag.ListOther)
+                {
+                    <div class="col-md-4">
+                        <a href="~/bai-viet/@item.Slug">
+                            <img style="width:450px; height:250px;" src="~/@item.Img" />
+                        </a>
+                        <a href="~/bai-viet/@item.Slug">
+                            <b>@item.Title</b>
+                        </a>
+                        <p>
+                            @item.Detail
+                        </p>
+                    </div> <!-- col.// -->
+                }
+            </div> <!-- row.// -->
+            <br><br>
+            <h4>Bình luận</h4>
+            <div class="fb-comments" xid="<?php the_ID(); ?>" data-width="100%" data-numposts="15"></div>
+        </div>

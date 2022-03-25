@@ -1,0 +1,32 @@
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.csprojAssemblyReference.cache
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.csproj.CoreCompileInputs.cache
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\MyLibrary.dll.config
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\MyLibrary.dll
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\MyLibrary.pdb
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\EntityFramework.dll
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\EntityFramework.SqlServer.dll
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\EntityFramework.xml
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\EntityFramework.SqlServer.xml
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.csproj.CopyComplete
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.dll
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.pdb
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\PagedList.dll
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\PagedList.Mvc.dll
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\PagedList.xml
+E:\me\tai lieu\ASP.NET\MaiXuanLoi\MyLibrary\bin\Debug\PagedList.Mvc.xml
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\MyLibrary.dll.config
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\MyLibrary.dll
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\MyLibrary.pdb
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\EntityFramework.dll
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\EntityFramework.SqlServer.dll
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\PagedList.dll
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\PagedList.Mvc.dll
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\EntityFramework.xml
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\EntityFramework.SqlServer.xml
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\PagedList.xml
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\bin\Debug\PagedList.Mvc.xml
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.csprojAssemblyReference.cache
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.csproj.CoreCompileInputs.cache
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.csproj.CopyComplete
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.dll
+E:\my file\me\tai lieu\Thuc tap tot nghiep\MaiXuanLoi_2118110127\MaiXuanLoi\MyLibrary\obj\Debug\MyLibrary.pdb

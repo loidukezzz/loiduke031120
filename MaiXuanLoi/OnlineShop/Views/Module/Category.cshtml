@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MyLibrary.Model.Category>
+<aside class="col-lg col-md-3 flex-lg-grow-0">
+    <nav class="nav-home-aside">
+        <h6 class="title-category">Danh mục sản phẩm <i class="d-md-none icon fa fa-chevron-down"></i></h6>
+        <ul class="menu-category">
+            @foreach (var item in Model)
+            {
+            <li><a href="~/loai-san-pham/@item.Slug">@item.Name</a></li>            
+            }
+        </ul>
+    </nav>
+</aside> <!-- col.// -->

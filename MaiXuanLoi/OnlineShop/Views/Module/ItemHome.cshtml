@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MyLibrary.Model.Product>
+
+@if (Model.Count() > 0)
+{
+    <section class="padding-bottom-sm">
+        <header class="section-heading heading-line">
+            <h4 class="title-section text-uppercase">Sản phẩm gợi ý</h4>
+        </header>
+        <div class="row row-sm">
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                    <div class="card card-sm card-product-grid">
+                        <a href="~/chi-tiet-san-pham/@item.Slug" class="img-wrap"> <img src="~/@item.Img"> </a>
+                        <figcaption class="info-wrap">
+                            <a href="~/chi-tiet-san-pham/@item.Slug" class="title">@item.Name</a>
+                            <div class="price mt-1">
+                                @item.PriceSale.ToString("#,##0")Vnđ
+                            </div> <!-- price-wrap.// -->
+                        </figcaption>
+                    </div>
+                </div> <!-- col.// -->
+            }
+        </div> <!-- row.// -->
+    </section>
+}

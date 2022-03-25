@@ -1,0 +1,46 @@
+﻿@model MyLibrary.Model.Contact
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.743390024275!2d106.76957741534758!3d10.830939261145433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527d018230dc3%3A0x26583b03eb91e536!2zNDYsIDI0IMSQLjYxLCBQaMaw4bubYyBMb25nIEIsIFF14bqtbiA5LCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1623935227819!5m2!1svi!2s" width="1950" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            <div class="container">
+                <form action="action_page.php">
+
+                    <label for="fname">Full Name</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <label for="lname">Email</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="lname">Số điện thoại</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="subject">Điều bạn muốn ở chúng tôi</label>
+                    @*<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control", id = "subject" } })
+                        @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-default" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }

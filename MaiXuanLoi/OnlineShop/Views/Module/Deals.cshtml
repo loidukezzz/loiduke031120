@@ -1,0 +1,92 @@
+﻿
+@model IEnumerable<MyLibrary.Model.Product>
+<section class="padding-bottom">
+    <div class="card card-deal">
+        <div class="col-heading content-body">
+            <header class="section-heading">
+                <h3 class="section-title">Deals chớp nhoáng</h3>
+                <p>Thời gian còn lại</p>
+            </header><!-- sect-heading -->
+            <div id="timer">
+                <div class="timer">
+                    <div>
+                        <span class="num"><span class="days"></span></span><small>Ngày</small>    
+                    </div>
+                    <div>
+                        <span class="num"><span class="hours"></span></span> <small>Giờ</small>
+                    </div>
+                    <div>
+                        <span class="num"><span class="minutes"></span></span><small>Phút</small>
+                    </div>
+                    <div>
+                        <span class="num"><span class="seconds"></span></span><small>Giây</small>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- col.// -->
+        <div class="row no-gutters items-wrap">
+            @foreach (var item in Model)
+            {
+                <div class="col-md col-6">
+                    <figure class="card-product-grid card-sm">
+                        <a href="~/chi-tiet-san-pham/@item.Slug" class="img-wrap">
+                            <img src="~/@item.Img">
+                        </a>
+                        <div class="text-wrap p-3">
+                            <a href="~/chi-tiet-san-pham/@item.Slug" class="title">@item.Name</a>
+                            @{
+                                int sale = Convert.ToInt32(100 - ((@item.PriceSale * 100) / @item.Price));
+
+                            <span class="badge badge-danger"> - @sale % </span>
+                             }        
+                        </div>
+                    </figure>
+                </div> <!-- col.// -->
+            }
+        </div>            
+    </div>
+</section>
+<script>
+    function getTimeRemaining(endtime) {
+        const total = Date.parse(endtime) - Date.parse(new Date());
+        const seconds = Math.floor((total / 1000) % 60);
+        const minutes = Math.floor((total / 1000 / 60) % 60);
+        const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+        return {
+            total,
+            days,
+            hours,
+            minutes,
+            seconds
+        };
+    }
+    
+    function initializeClock(id, endtime) {
+        const clock = document.getElementById(id);
+        const daysSpan = clock.querySelector('.days');
+        const hoursSpan = clock.querySelector('.hours');
+        const minutesSpan = clock.querySelector('.minutes');
+        const secondsSpan = clock.querySelector('.seconds');
+
+        function updateClock() {
+            const t = getTimeRemaining(endtime);
+
+            daysSpan.innerHTML = t.days;
+            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+            if (t.total <= 0) {
+                clearInterval(timeinterval);
+            }
+        }
+
+        updateClock();
+        const timeinterval = setInterval(updateClock, 1000);
+    }
+
+    const deadline = new Date(Date.parse(new Date()) + 1 * 1 * 60 * 60 * 1000);   
+    initializeClock('timer', deadline);
+</script>

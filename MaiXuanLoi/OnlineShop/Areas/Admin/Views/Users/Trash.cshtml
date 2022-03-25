@@ -1,0 +1,127 @@
+﻿@model IEnumerable<MyLibrary.Model.User>
+
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thùng rác người dùng</h2>
+
+<p>
+    @Html.ActionLink("Index", "Users")
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th scope="col">
+            #
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Roles)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Img)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Access)
+        </th>
+        @*<th scope="col">
+            @Html.DisplayNameFor(model => model.Created_at)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Created_by)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Updated_at)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Status)
+        </th>*@
+        <th scope="col"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Roles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            <img style="max-width:30%; max-height:30%;" src="~/@Html.DisplayFor(modelItem => item.Img)" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Access)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Created_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>*@
+        <td>
+            <div class="action_btns d-flex">
+                <a href="@Url.Action("Retrash", "Users", new { id = item.Id })" class="action_btn mr_10"> <i class="fas fa-trash-restore"></i>__</a>
+                <a href="@Url.Action("Delete", "Users", new { id = item.Id })" class="action_btn ml-10"><i class="far fa-trash-alt"></i>_</a>
+            </div>
+        </td>
+    </tr>
+    }
+
+</table>

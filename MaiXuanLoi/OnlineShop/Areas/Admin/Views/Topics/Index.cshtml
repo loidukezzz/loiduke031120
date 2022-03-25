@@ -1,0 +1,138 @@
+﻿@model IEnumerable<MyLibrary.Model.Topic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách topic</h2>
+
+<p>
+    <button type="button" class="btn btn-outline-primary rounded-pill mb-3">
+        <a href="@Url.Action("Create", "Topics")"><i class="fas fa-plus mr-2"></i>Thêm Mới</a>
+    </button>
+    <button type="button" class="btn btn-outline-primary rounded-pill mb-3">
+        <a href="@Url.Action("Trash", "Topics")"><i class="fas fa-trash mr-2"></i>Thùng Rác</a>
+    </button>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">
+                #
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.ParentId)
+            </th>
+            @*<th scope="col">
+                    @Html.DisplayNameFor(model => model.Orders)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Metakey)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Metadesc)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Created_at)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Created_by)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Updated_at)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Updated_by)
+                </th>*@
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @*<tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+            </tr>*@
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentId)
+            </td>
+            @*<td>
+        @Html.DisplayFor(modelItem => item.Orders)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Metakey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Metadesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_by)
+        </td>*@
+            <td>
+                @if (item.Status == 1)
+                {
+                    <a href="@Html.DisplayFor(modelItem => item.Status)" class="badge_active">Active</a>
+
+                }
+                else
+                {
+                    <a href="@Html.DisplayFor(modelItem => item.Status)" class="badge_active3">Closed</a>
+                }
+            </td>
+            <td>
+                <div class="action_btns d-flex">
+                    @if (item.Status == 1)
+                    {
+                        <a class="action_btn mr_10" href="@Url.Action("Status", "Topics",new { id = item.Id })"><i class="fas fa-toggle-on"></i>_</a>
+                    }
+                    else
+                    {
+                        <a class="action_btn mr_10" href="@Url.Action("Status", "Topics",new { id = item.Id })"><i class="fas fa-toggle-off"></i>_</a>
+                    }
+                    <a href="@Url.Action("Edit", "Topics", new { id = item.Id })" class="action_btn mr_10"> <i class="far fa-edit"> </i>_</a>
+                    <a href="@Url.Action("Deltrash", "Topics", new { id = item.Id })" class="action_btn"> <i class="fas fa-trash"> </i>_</a>
+                    <a href="@Url.Action("Details", "Topics", new { id = item.Id })" class="action_btn ml-10"> <i class="far fa-eye"> </i>_</a>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

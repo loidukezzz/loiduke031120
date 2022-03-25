@@ -1,0 +1,102 @@
+﻿@model IEnumerable<MyLibrary.Model.Order>
+
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thùng rác đơn hàng</h2>
+
+<p>
+    @Html.ActionLink("Index", "Orders")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th scope="col">
+            #
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.ExportDate)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.DeliveryAddress)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.DeliveryName)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.DeliveryPhone)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.DeliveryEmail)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Updated_at)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th scope="col"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExportDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryEmail)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Updated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>*@
+        <td>
+            <div class="action_btns d-flex">
+                <a href="@Url.Action("Retrash", "Orders", new { id = item.Id })" class="action_btn mr_10"> <i class="fas fa-trash-restore"></i>__</a>
+                <a href="@Url.Action("Delete", "Orders", new { id = item.Id })" class="action_btn ml-10"><i class="far fa-trash-alt"></i>_</a>
+            </div>
+        </td>
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<MyLibrary.Model.Category>
+
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thùng rác danh mục</h2>
+
+<p>
+    @Html.ActionLink("Index", "Category")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th scope="col">
+            #
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Slug)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.ParentId)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        @*<th scope="col">
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.ShortDes)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Fulldecription)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Orders)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Metakey)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Metadesc)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Created_at)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Created_by)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Updated_at)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Status)
+        </th>*@
+        <th scope="col"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slug)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentId)
+        </td>
+        <td>
+            <img style="max-width:30%; max-height:30%;" src="~/@Html.DisplayFor(modelItem => item.Image)" />
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortDes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fulldecription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Orders)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Metakey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Metadesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>*@
+        <td>
+            <a href="@Url.Action("Retrash", "Category", new { id = item.Id })" class="action_btn mr_10"> <i class="fas fa-trash-restore"></i>__</a>
+            <a href="@Url.Action("Delete", "Category", new { id = item.Id })" class="action_btn ml-10"><i class="far fa-trash-alt"></i>_</a>
+        </td>
+    </tr>
+}
+
+</table>

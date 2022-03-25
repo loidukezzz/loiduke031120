@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MyLibrary.Model.Posts>
+@{
+    ViewBag.Title = "Posts";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content bg-white padding-y">
+    <div class="container">
+        <h5 class="card-title">Tin mới nhất</h5>        
+        <div class="row mt-5">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                        <a href="~/bai-viet/@item.Slug">
+                            <img style="width:450px; height:250px;" src="~/@item.Img" />
+                        </a>
+                        <a href="~/bai-viet/@item.Slug">
+                            <b>@item.Title</b>
+                        </a>
+                        <p>
+                            @item.Detail
+                        </p>
+                </div> <!-- col.// -->
+            }
+        </div> <!-- row.// -->
+        <br><br>
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
